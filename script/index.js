@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3000;
 
 const SERVER = HTTP.createServer((req, res) => {});
 
-SERVER.listen((err) => {
+SERVER.listen(PORT, (err) => {
   if (err) {
     console.log(`Something's wrong: ${err}`);
   } else {
