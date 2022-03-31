@@ -39,7 +39,6 @@ const SERVER = HTTP.createServer((req, res) => {
       if (err) {
         throw err;
       } else {
-        console.log("Loading CSS");
         res.writeHead(200, { "content-type": "text/css" });
         res.write(data);
         res.end();
