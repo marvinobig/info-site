@@ -3,6 +3,23 @@
     padding: 0;
 }
 
+/* navigation */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(104, 25, 104);
+}
 nav ul li {
     display: inline-block;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
 }
