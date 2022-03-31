@@ -1,7 +1,7 @@
 const HTTP = require("http");
 const FS = require("fs");
 
-const PORT = 8000;
+const PORT = 8080;
 
 const SERVER = HTTP.createServer((req, res) => {
   if (req.url === "/" || req.url === "/home") {
