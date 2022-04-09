@@ -1,6 +1,6 @@
 /* global __dirname */
 const EXPRESS = require("express");
-const path = require("path/posix");
+const PATH = require("path");
 const APP = EXPRESS();
 
 const PORT = 8080;
@@ -8,23 +8,23 @@ const PORT = 8080;
 APP.use(EXPRESS.static("./public"));
 
 APP.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "./public/html", "index.html"));
+  res.sendFile(PATH.join(__dirname, "./public/html", "index.html"));
 });
 
 APP.get("/home", function (req, res) {
-  res.sendFile(path.join(__dirname, "./public/html", "index.html"));
+  res.sendFile(PATH.join(__dirname, "./public/html", "index.html"));
 });
 
 APP.get("/about", function (req, res) {
-  res.sendFile(path.join(__dirname, "./public/html", "about.html"));
+  res.sendFile(PATH.join(__dirname, "./public/html", "about.html"));
 });
 
 APP.get("/contact", function (req, res) {
-  res.sendFile(path.join(__dirname, "./public/html", "contact.html"));
+  res.sendFile(PATH.join(__dirname, "./public/html", "contact.html"));
 });
 
 APP.get("*", function (req, res) {
-  res.status(404).sendFile(path.join(__dirname, "./public/html", "404.html"));
+  res.status(404).sendFile(PATH.join(__dirname, "./public/html", "404.html"));
 });
 
 APP.listen(PORT, () => {
