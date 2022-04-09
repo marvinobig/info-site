@@ -3,7 +3,7 @@ const EXPRESS = require("express");
 const PATH = require("path");
 const APP = EXPRESS();
 
-const PORT = 8080;
+const PORT = 3000;
 
 APP.use(EXPRESS.static("./public"));
 
