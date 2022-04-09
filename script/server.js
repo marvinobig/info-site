@@ -1,4 +1,4 @@
-const HTTP = require("http");
+/* const HTTP = require("http");
 const FS = require("fs");
 
 const PORT = 8080;
@@ -65,3 +65,14 @@ SERVER.listen(PORT, (err) => {
     console.log(`Server is live at: ${PORT}`);
   }
 });
+*/
+
+const EXPRESS = require("express");
+const APP = EXPRESS();
+const PORT = 8080;
+
+APP.get()
+
+APP.listen(PORT, () => {
+  console.log(`Info Site Server is listening on port : ${PORT}!`)
+})
