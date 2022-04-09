@@ -1,94 +1,32 @@
-/* const HTTP = require("http");
-const FS = require("fs");
-
-const PORT = 8080;
-
-const SERVER = HTTP.createServer((req, res) => {
-  if (req.url === "/" || req.url === "/home") {
-    FS.readFile("../index.html", (err, data) => {
-      if (err) {
-        throw err;
-      } else {
-        res.writeHead(200, { "content-type": "text/html" });
-        res.write(data);
-        res.end();
-      }
-    });
-  } else if (req.url === "/about") {
-    FS.readFile("../pages/about.html", (err, data) => {
-      if (err) {
-        throw err;
-      } else {
-        res.writeHead(200, { "content-type": "text/html" });
-        res.write(data);
-        res.end();
-      }
-    });
-  } else if (req.url === "/contact") {
-    FS.readFile("../pages/contact.html", (err, data) => {
-      if (err) {
-        throw err;
-      } else {
-        res.writeHead(200, { "content-type": "text/html" });
-        res.write(data);
-        res.end();
-      }
-    });
-  } else if (req.url === "/stylesheet/info-site.css") {
-    FS.readFile("../stylesheet/info-site.css", (err, data) => {
-      if (err) {
-        throw err;
-      } else {
-        res.writeHead(200, { "content-type": "text/css" });
-        res.write(data);
-        res.end();
-      }
-    });
-  } else {
-    FS.readFile("../pages/404.html", (err, data) => {
-      if (err) {
-        throw err;
-      } else {
-        res.writeHead(200, { "content-type": "text/html" });
-        res.write(data);
-        res.end();
-      }
-    });
-  }
-});
-
-
-SERVER.listen(PORT, (err) => {
-  if (err) {
-    console.log(`Something's wrong: ${err}`);
-  } else {
-    console.log(`Server is live at: ${PORT}`);
-  }
-});
-*/
-
+/* global __dirname */
 const EXPRESS = require("express");
+const path = require("path/posix");
 const APP = EXPRESS();
-const ROUTER = EXPRESS.Router();
+
 const PORT = 8080;
 
-APP.get("/", function(req, res) {
+APP.use(EXPRESS.static("./public"));
 
-})
+APP.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "./public/html", "index.html"));
+});
 
+APP.get("/home", function (req, res) {
+  res.sendFile(path.join(__dirname, "./public/html", "index.html"));
+});
 
-APP.get("/home", function(req, res) {
+APP.get("/about", function (req, res) {
+  res.sendFile(path.join(__dirname, "./public/html", "about.html"));
+});
 
-})
+APP.get("/contact", function (req, res) {
+  res.sendFile(path.join(__dirname, "./public/html", "contact.html"));
+});
 
-APP.get("/about", function(req, res) {
-
-})
-
-APP.get("/contact", function(req, res) {
-
-})
+APP.get("*", function (req, res) {
+  res.status(404).sendFile(path.join(__dirname, "./public/html", "404.html"));
+});
 
 APP.listen(PORT, () => {
-  console.log(`Info Site Server is listening on port : ${PORT}!`)
-})
+  console.log(`Info Site Server is listening on port : ${PORT}!`);
+});
