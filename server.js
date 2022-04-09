@@ -69,9 +69,25 @@ SERVER.listen(PORT, (err) => {
 
 const EXPRESS = require("express");
 const APP = EXPRESS();
+const ROUTER = EXPRESS.Router();
 const PORT = 8080;
 
-APP.get()
+APP.get("/", function(req, res) => {
+
+})
+
+
+APP.get("/home", function(req, res) => {
+
+})
+
+APP.get("/about", function(req, res) => {
+
+})
+
+APP.get("/contact", function(req, res) => {
+
+})
 
 APP.listen(PORT, () => {
   console.log(`Info Site Server is listening on port : ${PORT}!`)
