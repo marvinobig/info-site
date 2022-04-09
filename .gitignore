@@ -1,4 +1,6 @@
+.eslintrc.json
 node_modules
+
 <<<<<<< HEAD
 =======
 .gitignore
